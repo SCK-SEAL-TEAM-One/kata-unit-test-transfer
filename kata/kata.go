@@ -19,8 +19,12 @@ func (t Tranfer) CalculateAge(brithDate time.Time) int {
 
 func (t Tranfer) CalulateFee(userInfo UserInfo, amount float64) float64 {
 	age := t.CalculateAge(userInfo.BirthDate)
-	if age < 15 {
-		return 20.0
+	if age >= 15 && age <= 20 {
+		return 00.0
 	}
-	return 15.0
+	return 12.0
+}
+
+func CheckLimitPerDay(amount, historyDeposit, limitPerDay float64) bool {
+	return (amount + historyDeposit) > limitPerDay
 }

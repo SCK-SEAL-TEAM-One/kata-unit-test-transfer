@@ -8,10 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_CalculateAge_Input_Birth_Date_18042011_Should_be_8(t *testing.T) {
-	//preconditions (Arrange)
-	expectedAge := 8                                   //expected result
-	birthDate, _ := time.Parse("02012006", "18042011") //setup
+func Test_CalculateAge_Input_Birth_Date_18042003_Should_be_16(t *testing.T) {
+	expectedAge := 16
+	birthDate, _ := time.Parse("02012006", "18042003")
 	tranfer := kata.Tranfer{
 		Now: func() time.Time {
 			fixedTime, _ := time.Parse("02012006", "30012020")
@@ -19,17 +18,15 @@ func Test_CalculateAge_Input_Birth_Date_18042011_Should_be_8(t *testing.T) {
 		},
 	}
 
-	//action (Act)
 	actual := tranfer.CalculateAge(birthDate)
 
-	//validate result vs expect (Assert)
 	assert.Equal(t, expectedAge, actual)
 }
 
-func Test_CalulateFee_Input_User_BirtDate_18042011_And_Amount_Should_Be_Fee_20(t *testing.T) {
-	expectedFee := 20.0
+func Test_CalulateFee_Input_User_BirtDate_18042003_And_Amount_Should_Be_Fee_0(t *testing.T) {
+	expectedFee := 00.0
 	amount := 5000.00
-	birthDate, _ := time.Parse("02012006", "18042011")
+	birthDate, _ := time.Parse("02012006", "18042003")
 	userInfo := kata.UserInfo{
 		UserID:    1,
 		BirthDate: birthDate,
@@ -46,22 +43,13 @@ func Test_CalulateFee_Input_User_BirtDate_18042011_And_Amount_Should_Be_Fee_20(t
 	assert.Equal(t, expectedFee, actual)
 }
 
-func Test_CalulateFee_Input_User_BirtDate_18041996_And_Amount_Should_Be_Fee_15(t *testing.T) {
-	expectedFee := 15.0
-	amount := 5000.00
-	birthDate, _ := time.Parse("02012006", "18041996")
-	userInfo := kata.UserInfo{
-		UserID:    1,
-		BirthDate: birthDate,
-	}
-	tranfer := kata.Tranfer{
-		Now: func() time.Time {
-			fixedTime, _ := time.Parse("02012006", "30012020")
-			return fixedTime
-		},
-	}
+func Test_CheckLimitPerDay_Input_Amount_500_And_History_Deposit_50000_Limit_Per_Day_100000_Should_Be_False(t *testing.T) {
+	expected := false
+	amount := 500.00
+	historyDeposit := 50000.00
+	limitPerDay := 100000.00
 
-	actual := tranfer.CalulateFee(userInfo, amount)
+	actual := kata.CheckLimitPerDay(amount, historyDeposit, limitPerDay)
 
-	assert.Equal(t, expectedFee, actual)
+	assert.Equal(t, expected, actual)
 }
