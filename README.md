@@ -1,4 +1,4 @@
-### ใช้สำหรับ Workshop
+### ใช้สำหรับ Workshop ประกอบการสอน
 # โจทย์การโอนเงิน - ถอนเงิน - ฝากเงิน
 
 # Function And Parameter Naming Conventions
