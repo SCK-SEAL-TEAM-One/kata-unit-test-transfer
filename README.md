@@ -24,7 +24,7 @@ datecalculate
 ## Test Function Name
 - ใช้รูปแบบการตั้งชื่อฟังก์ชันเป็นแบบ **Snake_Case** เช่น
 ```
-Test_ActionToTest_Input_152_Should_Be_150
+Test_CalculateAge_Input_Birth_Date_18042003_Should_be_16
 ```
 
 ## Variable Name
@@ -50,13 +50,13 @@ HOUR, MINUTE
 ```
 
 ## ข้อตกลง Commit Message ร่วมกัน
-`[Created]: สร้างไฟล์ใหม่`
+`[Created]: สร้างไฟล์ใหม่สำหรับ...`
 
 `[Edited]: แก้ไข code ในไฟล์เดิมที่มีอยู่แล้ว รวมถึงกรณี refactor code`
 
 `[Added]: กรณีเพิ่ม function, function test ใหม่เข้ามา`
 
-`[Deleted]: ลบไฟล์ออก`
+`[Deleted]: ลบไฟล์ออก 'ชื่อไฟล์' เนื่องจาก...`
 
 * ให้เขียนรายละเอียดด้วยว่าแก้ไขอะไรและทำที่ตรงไหน
 
